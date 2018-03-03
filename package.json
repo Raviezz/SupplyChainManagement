@@ -1,0 +1,21 @@
+{
+  "name": "blockchain_essentials",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "config.json": "0.0.4",
+    "cors": "^2.8.4",
+    "eris-db": "^0.15.12",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "solc": "^0.4.20",
+    "web3": "^0.19.1"
+  }
+}

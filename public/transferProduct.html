@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Transforing</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Plugin CSS -->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+        <style type="text/css">
+            .bs-example{
+              margin-top: 0;
+              margin: 20px;
+            }
+          </style>
+                <div class="bs-example">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            
+                            <a href="#" class="navbar-brand">SUPPLY CHAIN MANAGEMENT</a>
+                        </div>
+                        <!-- Collection of nav links and other content for toggling -->
+                        <div id="navbarCollapse" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="http://127.0.0.1:3000/newProduct">Register Product</a></li>
+                                <li><a href="http://127.0.0.1:3000/trace">Trace Product</a></li>
+                                <li><a href="http://127.0.0.1:3000/transfer">Transfer Product</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="http://127.0.0.1:3000/logout">Logout</a></li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="content-wrapper">
+
+                        <div class="container-fluid">
+                          <div class="container-fluid">
+                              <form class="form-horizontal">
+                                  <div class="form-group">
+                                      <label class="control-label col-sm-2" >Account no 1</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" id="a_id1" placeholder="Enter Account no 1">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label class="control-label col-sm-2" >Account no 2</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="a_id2" placeholder="Enter Account no 2">
+                                        </div>
+                                    </div>
+                                  <div class="form-group">
+                                        <label class="control-label col-sm-2" >product number:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="p_id" placeholder="Enter product no">
+                                        </div>
+                                    </div>
+                              </form>
+                          </div>
+                          <div class="form-group">        
+                              <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="transfer" class="btn btn-default">Transfer</button>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div id="tracks">
+                    <h1 id="track_id"></h1>
+                </div>
+                <script>
+                    $('#tracks').hide();
+                   $(document).ready(function(){
+
+                        $('#transfer').click(function (event){
+                            event.preventDefault(); 
+                            $.ajax({
+                                type: 'POST',
+                                url:"http://127.0.0.1:3000/transfer",
+                                headers: {
+                                    "content-type":"application/x-www-form-urlencoded"
+                                },  
+                                data: {
+                                    "aid1": $('#a_id1').val(),
+                                    "aid2": $('#a_id2').val(),
+                                    "pid": $('#p_id').val()
+                                    
+                                    
+                                },
+                                success: function (data){
+                                    console.log("data: ", data);
+                                    $('#track_id').html(data[1]);
+                                    alert(data);
+                                    
+                                }
+                            })
+                            //console.log("Type: " , $('#myselect').val()+ " pass:  " + $('#password').val() + " User: "+ $('#name').val()  )
+                        });
+                        })
+
+                
+                </script>
+  
+</body>
+</html>

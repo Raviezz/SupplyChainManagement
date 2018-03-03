@@ -1,0 +1,9 @@
+#!/bin/sh -l
+set -o errexit
+set -o xtrace
+
+go get -d github.com/eris-ltd/eris/cmd/eris
+cd $GOPATH/src/github.com/eris-ltd/eris/cmd/eris
+git checkout $BRANCH
+go install
+eris init --yes

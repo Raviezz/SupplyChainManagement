@@ -1,0 +1,11 @@
+#!/bin/sh
+set -o errexit
+set -o xtrace
+
+export GOPATH=$HOME/go
+mkdir $GOPATH
+
+cat >> .profile << EOF
+export GOPATH=$GOPATH
+export PATH=$GOPATH/bin:$PATH
+EOF

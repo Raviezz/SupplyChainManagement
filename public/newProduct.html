@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>New Product</title>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Plugin CSS -->
+        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/main.css">
+    
+    </head>
+    <body>
+        <style type="text/css">
+            .bs-example{
+            margin-top: 0;
+            margin: 20px;
+            }
+        </style>
+        <div class="container">
+            <div class="row">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <strong><i class="fa fa-warning"></i> Warning!</strong> <marquee><p style="font-family: Impact; font-size: 18pt">YOU MUST HAVE AN ACCOUNT (MANUFACTURER) TO REGISTER A NEW PRODUCT !</p></marquee>
+                    </div>
+                </div>
+        </div>
+        <div class="bs-example">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    
+                    <a href="#" class="navbar-brand">SUPPLY CHAIN MANAGEMENT</a>
+                </div>
+                <!-- Collection of nav links and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="http://127.0.0.1:3000/newProduct">Register Product</a></li>
+                        <!--<li><a href="http://127.0.0.1:3000/trace">Trace Product</a></li>-->
+                        <li><a href="http://127.0.0.1:3000/transfer">Transfer Product</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://127.0.0.1:3000/login">Login</a></li>
+                        <li><a href="http://127.0.0.1:3000/account">Sign Up</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container">    
+    
+            <h1 class="text-center">SUPPLY CHAIN MANAGEMENT</h1>
+    
+            <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title">Registration</div>
+                            </div>  
+                            <div class="panel-body" >
+                                <form id="signupform" class="form-horizontal" role="form">
+                                    
+                                        <div id="signupalert">
+                                            
+                                        </div>
+                                        
+                                    
+                                        <div class="form-group">
+                                            <label  class="col-md-3 control-label">Account ID</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="uid" id="u_id" placeholder="Account number" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Product Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="product_name" name="pname" placeholder="Enter product name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-md-3 control-label">Product Cost</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="p_cost" name="pcost" placeholder="Enter product cost" required>
+                                                </div>
+                                            </div>
+                                        <div class="form-group">
+                                                <label  class="col-md-3 control-label">Product Specifications</label>
+                                                <div class="col-md-9">
+                                                        <textarea class="form-control" id="specs" rows="3"></textarea>                                                </div>
+                                            </div>
+                                        <div class="form-group">
+                                                <label  class="col-md-3 control-label">Product Description</label>
+                                                <div class="col-md-9">
+                                                        <textarea class="form-control" id="desp" rows="3"></textarea>                                                 </div>
+                                            </div>
+                                    
+                                        
+    
+    
+                                        <div class="form-group">
+                                            <!-- Button -->                                        
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <button id="btnnew" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="icon-hand-right"></i> &nbsp Register Product</button>
+                                            </div>
+                                        </div>
+                                    
+                                </form>
+                             </div>
+                        </div>
+       
+        <h1 id="response"></h1>
+        <ul id="data">
+            <li id="productName"></li>
+            <li id="productCost"></li>
+            <li id="productSpecs"></li>
+            <li id="productDesc"></li>
+            <li id="productOwner"></li>
+            <li id="ManufactureDate"></li>
+        </ul>
+      <script>
+      $(document).ready(function(){
+          $('#data').hide();
+        $('#btnnew').click(function (event){
+            event.preventDefault(); 
+            $.ajax({
+                type: 'POST',
+                url:"http://127.0.0.1:3000/newProduct",
+                headers: {
+                    "content-type":"application/x-www-form-urlencoded"
+                },  
+                data: {
+                    "uid":$('#u_id').val(),
+                    "prdt_name":$('#product_name').val(),
+                    "prdt_cost":$('#p_cost').val(),
+                    "prdt_specs":$('#specs').val(),
+                    "prdt_desc":$('#desp').val(),
+                    
+                },
+                success: function (data){
+                    console.log("data: ", data);
+                    if(data != "Invalid User"){
+                        $('#response').html('<p>Your product is registered and its ID id </p> <strong>'+data[0]+' </strong>');
+                        $('#productName').html('<p>Your product name </p> <strong>'+data[1]+'</strong>');
+                        $('#productCost').html('<p>Your product cost  </p> <strong>'+data[2]+'</strong>');
+                        $('#productSpecs').html('<p>Your product specifications  </p> <strong>'+data[3]+'</strong>');
+                        $('#productDesc').html('<p>Your product is description  </p> <strong>'+data[4]+'</strong>');
+                        $('#productOwner').html('<p>Your Address </p> <strong>'+data[5]+'</strong>');
+                        $('#ManufactureDate').html('<p>Product Registered on </p> <strong>'+data[6]+'</strong>');
+
+                       $('#data').show();
+                    }
+                    alert(data);
+                    //var number i=0;
+                   
+                   // window.location.href = "/trace";
+                }
+            })
+            //console.log("Type: " , $('#myselect').val()+ " pass:  " + $('#password').val() + " User: "+ $('#name').val()  )
+        });
+    })
+      
+      
+      </script>
+     
+</body>
+</html>
