@@ -1,9 +1,0 @@
-#!/bin/sh
-set -o errexit
-set -o xtrace
-
-apt-get install --yes \
-  curl \
-  git \
-  jq
-  
